@@ -1,0 +1,228 @@
+[gd_scene load_steps=18 format=3 uid="uid://bawrajpr1aprl"]
+
+[ext_resource type="Script" path="res://scripts/guy.gd" id="1_4ctn2"]
+[ext_resource type="Script" path="res://area_2d.gd" id="2_4bgsy"]
+[ext_resource type="Texture2D" uid="uid://cxj1q3jt10wb0" path="res://kiloslime-sprites-png.png" id="2_p8gfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvrpq"]
+size = Vector2(14, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acjsc"]
+size = Vector2(14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss0ug"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(0, 119, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oc65"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(51, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eksj0"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfypo"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(0, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnthq"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(17, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smmdt"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(34, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur4xf"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(51, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r4re"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(34, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xru55"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(17, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xq2j"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(17, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fph2e"]
+atlas = ExtResource("2_p8gfx")
+region = Rect2(0, 51, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3le1r"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss0ug")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oc65")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eksj0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfypo")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_hnthq")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_smmdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur4xf")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r4re")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xru55")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xq2j")
+}],
+"loop": true,
+"name": &"wall-slide-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fph2e")
+}],
+"loop": true,
+"name": &"wall-slide-right",
+"speed": 5.0
+}]
+
+[node name="guy" type="CharacterBody2D" groups=["guy"]]
+position = Vector2(248, 153)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_4ctn2")
+
+[node name="obstacleDetecter" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("2_4bgsy")
+
+[node name="detecterColl" type="CollisionShape2D" parent="obstacleDetecter"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_jvrpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["guy"]]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_acjsc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["guy"]]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3le1r")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.1
+drag_right_margin = 0.0
+drag_bottom_margin = 0.1
+
+[node name="coyoteTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="jumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+
+[node name="leftHeadNudge" type="RayCast2D" parent="."]
+position = Vector2(-6, -3)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="leftHeadNudge2" type="RayCast2D" parent="."]
+position = Vector2(-4, -3)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="rightHeadNudge" type="RayCast2D" parent="."]
+position = Vector2(6, -3)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="rightHeadNudge2" type="RayCast2D" parent="."]
+position = Vector2(4, -3)
+target_position = Vector2(0, -2)
+hit_from_inside = true
+
+[node name="rightLedgeHop" type="RayCast2D" parent="."]
+position = Vector2(6, 6)
+target_position = Vector2(2, 0)
+hit_from_inside = true
+
+[node name="rightLedgeHop2" type="RayCast2D" parent="."]
+position = Vector2(6, 4)
+target_position = Vector2(2, 0)
+hit_from_inside = true
+
+[node name="leftLedgeHop" type="RayCast2D" parent="."]
+position = Vector2(-6, 6)
+target_position = Vector2(-2, 0)
+hit_from_inside = true
+
+[node name="leftLedgeHop2" type="RayCast2D" parent="."]
+position = Vector2(-6, 4)
+target_position = Vector2(-2, 0)
+hit_from_inside = true
+
+[node name="wallRays" type="Node2D" parent="."]
+
+[node name="rightray" type="RayCast2D" parent="wallRays"]
+position = Vector2(0, 1)
+target_position = Vector2(12, 0)
+
+[node name="leftRay" type="RayCast2D" parent="wallRays"]
+position = Vector2(0, 1)
+target_position = Vector2(-12, 0)
+
+[connection signal="body_entered" from="obstacleDetecter" to="obstacleDetecter" method="_on_body_entered"]
