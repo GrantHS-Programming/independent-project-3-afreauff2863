@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc7g8ran5na8t"
-path="res://.godot/imported/kiloslime-bg-tile.png-646cdd379fdd3e34cd933cc437cac03a.ctex"
+uid="uid://d1fu5ky141cpt"
+path="res://.godot/imported/lever-left-down.png-90696ff0c8d4bed423d143696e2eef7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kiloslime-bg-tile.png"
-dest_files=["res://.godot/imported/kiloslime-bg-tile.png-646cdd379fdd3e34cd933cc437cac03a.ctex"]
+source_file="res://sprites/singles/lever-left-down.png"
+dest_files=["res://.godot/imported/lever-left-down.png-90696ff0c8d4bed423d143696e2eef7f.ctex"]
 
 [params]
 

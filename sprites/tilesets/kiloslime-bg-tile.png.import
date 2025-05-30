@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr7c7yhj4ma41"
-path="res://.godot/imported/kiloslime-obj-png.png-1e22c2c720395d559f795b80436232b3.ctex"
+uid="uid://dc7g8ran5na8t"
+path="res://.godot/imported/kiloslime-bg-tile.png-9dbea7d065e48f9f241ac4370a8ff884.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kiloslime-obj-png.png"
-dest_files=["res://.godot/imported/kiloslime-obj-png.png-1e22c2c720395d559f795b80436232b3.ctex"]
+source_file="res://sprites/tilesets/kiloslime-bg-tile.png"
+dest_files=["res://.godot/imported/kiloslime-bg-tile.png-9dbea7d065e48f9f241ac4370a8ff884.ctex"]
 
 [params]
 

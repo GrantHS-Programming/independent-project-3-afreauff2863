@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpnq5h0renhuy"]
+
+[ext_resource type="Texture2D" uid="uid://cxj1q3jt10wb0" path="res://sprites/tilesets/kiloslime-sprites-png.png" id="1_0fr3i"]
+[ext_resource type="Script" path="res://starman.gd" id="1_xka7l"]
+[ext_resource type="Texture2D" uid="uid://dtknfj3f4u0gt" path="res://sprites/talkBubbles/starmanText1.png" id="3_70a87"]
+[ext_resource type="Texture2D" uid="uid://cl1f55m8i4xjj" path="res://sprites/talkBubbles/starmanText2.png" id="4_oo256"]
+[ext_resource type="Texture2D" uid="uid://clsmry86161d" path="res://sprites/talkBubbles/starmanText3.png" id="5_kwewr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4bwt"]
+size = Vector2(70, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjmtr"]
+atlas = ExtResource("1_0fr3i")
+region = Rect2(0, 153, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_birlj"]
+atlas = ExtResource("1_0fr3i")
+region = Rect2(17, 153, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdv8k"]
+atlas = ExtResource("1_0fr3i")
+region = Rect2(34, 153, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg2ae"]
+atlas = ExtResource("1_0fr3i")
+region = Rect2(51, 153, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4w4t"]
+atlas = ExtResource("1_0fr3i")
+region = Rect2(68, 153, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k6ql"]
+atlas = ExtResource("1_0fr3i")
+region = Rect2(85, 153, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_goy4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjmtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_birlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdv8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg2ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4w4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k6ql")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atdst"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_70a87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oo256")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kwewr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="starman" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xka7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e4bwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_goy4b")
+autoplay = "default"
+frame_progress = 0.525338
+
+[node name="talkPrompt" type="Sprite2D" parent="."]
+visible = false
+
+[node name="talkbox" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-38, -36)
+sprite_frames = SubResource("SpriteFrames_atdst")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlkules8cyla4"]
+
+[ext_resource type="Script" path="res://lever-left.gd" id="1_mvfdo"]
+[ext_resource type="Texture2D" uid="uid://d1fu5ky141cpt" path="res://sprites/singles/lever-left-down.png" id="2_vxkbr"]
+[ext_resource type="Texture2D" uid="uid://dcporq5tjs1b1" path="res://sprites/singles/lever-left-up.png" id="3_hxors"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6thpa"]
+size = Vector2(9, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44nso"]
+atlas = ExtResource("3_hxors")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cfhx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vxkbr")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44nso")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_mvfdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_6thpa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2cfhx")
+animation = &"up"
+autoplay = "up"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

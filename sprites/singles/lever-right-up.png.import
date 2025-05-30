@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1nbrvg1jxo3g"
-path="res://.godot/imported/kiloslime-saws.png-16f31aaf4663adde7e2a9425e9819f75.ctex"
+uid="uid://bk8h8cyn24skc"
+path="res://.godot/imported/lever-right-up.png-34e7a088e00bd06542c5d9812915e1d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kiloslime-saws.png"
-dest_files=["res://.godot/imported/kiloslime-saws.png-16f31aaf4663adde7e2a9425e9819f75.ctex"]
+source_file="res://sprites/singles/lever-right-up.png"
+dest_files=["res://.godot/imported/lever-right-up.png-34e7a088e00bd06542c5d9812915e1d8.ctex"]
 
 [params]
 

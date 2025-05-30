@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmq61x22qbumm"]
 
 [ext_resource type="Script" path="res://saw.gd" id="1_6fxos"]
-[ext_resource type="Texture2D" uid="uid://c1nbrvg1jxo3g" path="res://kiloslime-saws.png" id="1_u6y0h"]
+[ext_resource type="Texture2D" uid="uid://c1nbrvg1jxo3g" path="res://sprites/tilesets/kiloslime-saws.png" id="1_u6y0h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2iqa"]
 radius = 15.0333

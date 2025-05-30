@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr6evnedrwjkp"
-path="res://.godot/imported/kiloslime-obstacles-png.png-3e7150d7d83041690e45e501357b03b1.ctex"
+uid="uid://cr7c7yhj4ma41"
+path="res://.godot/imported/kiloslime-obj-png.png-6e004d8ac9c3647ba4c3a69b6a86e12c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kiloslime-obstacles-png.png"
-dest_files=["res://.godot/imported/kiloslime-obstacles-png.png-3e7150d7d83041690e45e501357b03b1.ctex"]
+source_file="res://sprites/tilesets/kiloslime-obj-png.png"
+dest_files=["res://.godot/imported/kiloslime-obj-png.png-6e004d8ac9c3647ba4c3a69b6a86e12c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbbqe0oo1gxw7"
-path="res://.godot/imported/kiloslime-tileset-png.png-95e8227baf8f4e2e0c6d09d6aee94c54.ctex"
+uid="uid://dcporq5tjs1b1"
+path="res://.godot/imported/lever-left-up.png-b3f2c80db844cf24114d8f2ae954cc6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kiloslime-tileset-png.png"
-dest_files=["res://.godot/imported/kiloslime-tileset-png.png-95e8227baf8f4e2e0c6d09d6aee94c54.ctex"]
+source_file="res://sprites/singles/lever-left-up.png"
+dest_files=["res://.godot/imported/lever-left-up.png-b3f2c80db844cf24114d8f2ae954cc6d.ctex"]
 
 [params]
 

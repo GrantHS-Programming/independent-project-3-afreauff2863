@@ -27,6 +27,9 @@ var canWallJump = 2
 var canControl:bool = true
 var deathPos = Vector2(248, 153)
 
+func _ready() -> void:
+	# global_position = deathPos
+	global_position = get_parent().get_node("checkpoints").get_node("checkpoint2").position
 
 func resetPlayer() -> void:
 	$AnimatedSprite2D.play("death")

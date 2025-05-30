@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://duljgtlh8qbej"]
 
 [ext_resource type="Script" path="res://checkpoint.gd" id="1_bxf3h"]
-[ext_resource type="Texture2D" uid="uid://dc7g8ran5na8t" path="res://kiloslime-bg-tile.png" id="1_fqc4r"]
+[ext_resource type="Texture2D" uid="uid://dc7g8ran5na8t" path="res://sprites/tilesets/kiloslime-bg-tile.png" id="1_fqc4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvxg2"]
 atlas = ExtResource("1_fqc4r")
