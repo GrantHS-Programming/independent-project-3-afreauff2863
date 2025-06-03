@@ -1,9 +1,10 @@
 res://map.tscn
-res://scripts/guy.gd
 res://guy.tscn
-res://lever-left.gd
 res://lever-left.tscn
 res://checkpoint.tscn
-res://camera_2d.gd
 res://starman.tscn
 res://starman.gd
+res://scripts/guy.gd
+res://checkpoint.gd
+res://key1.tscn
+res://lever-left.gd

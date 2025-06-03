@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpnq5h0renhuy"]
+[gd_scene load_steps=18 format=3 uid="uid://bpnq5h0renhuy"]
 
 [ext_resource type="Texture2D" uid="uid://cxj1q3jt10wb0" path="res://sprites/tilesets/kiloslime-sprites-png.png" id="1_0fr3i"]
 [ext_resource type="Script" path="res://starman.gd" id="1_xka7l"]
 [ext_resource type="Texture2D" uid="uid://dtknfj3f4u0gt" path="res://sprites/talkBubbles/starmanText1.png" id="3_70a87"]
 [ext_resource type="Texture2D" uid="uid://cl1f55m8i4xjj" path="res://sprites/talkBubbles/starmanText2.png" id="4_oo256"]
 [ext_resource type="Texture2D" uid="uid://clsmry86161d" path="res://sprites/talkBubbles/starmanText3.png" id="5_kwewr"]
+[ext_resource type="Texture2D" uid="uid://c82itkqhf17c4" path="res://sprites/talkBubbles/interact-1.png" id="6_sw8km"]
+[ext_resource type="Texture2D" uid="uid://dkg5y8o2oq5kb" path="res://sprites/talkBubbles/interact-2.png" id="7_xi0so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4bwt"]
 size = Vector2(70, 20)
@@ -76,6 +78,20 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_no5nm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sw8km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xi0so")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="starman" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
@@ -89,12 +105,16 @@ sprite_frames = SubResource("SpriteFrames_goy4b")
 autoplay = "default"
 frame_progress = 0.525338
 
-[node name="talkPrompt" type="Sprite2D" parent="."]
-visible = false
-
 [node name="talkbox" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-38, -36)
 sprite_frames = SubResource("SpriteFrames_atdst")
 
+[node name="talkPrompt" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-22, -21)
+sprite_frames = SubResource("SpriteFrames_no5nm")
+autoplay = "default"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

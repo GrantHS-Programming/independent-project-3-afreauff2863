@@ -28,8 +28,8 @@ var canControl:bool = true
 var deathPos = Vector2(248, 153)
 
 func _ready() -> void:
-	# global_position = deathPos
-	global_position = get_parent().get_node("checkpoints").get_node("checkpoint2").position
+	#global_position = deathPos
+	global_position = get_parent().get_node("checkpoints").get_node("checkpoint4").position
 
 func resetPlayer() -> void:
 	$AnimatedSprite2D.play("death")
@@ -48,6 +48,7 @@ func cameraOffsetControl():
 
 
 func _process(delta: float) -> void:
+
 	
 	if Input.is_action_just_pressed("respawn"):
 		resetPlayer()
@@ -109,6 +110,7 @@ func _process(delta: float) -> void:
 	if is_on_wall_only() && velocity.y > -10 && (Input.is_action_pressed("move-left") || Input.is_action_pressed("move-right")):
 			
 		velocity.y /= 1.5
+		# fix wall-sliding in a one-tile wide gap
 		if leftRay.is_colliding():
 			$AnimatedSprite2D.play("wall-slide-left")
 		elif rightRay.is_colliding():

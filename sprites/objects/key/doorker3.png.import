@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcporq5tjs1b1"
-path="res://.godot/imported/lever-left-up.png-b3f2c80db844cf24114d8f2ae954cc6d.ctex"
+uid="uid://cccysg1wng6qw"
+path="res://.godot/imported/doorker3.png-fd1aa943a4615c1721830fac72dd2c91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/singles/lever-left-up.png"
-dest_files=["res://.godot/imported/lever-left-up.png-b3f2c80db844cf24114d8f2ae954cc6d.ctex"]
+source_file="res://sprites/objects/key/doorker3.png"
+dest_files=["res://.godot/imported/doorker3.png-fd1aa943a4615c1721830fac72dd2c91.ctex"]
 
 [params]
 
