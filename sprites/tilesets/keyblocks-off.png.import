@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk8h8cyn24skc"
-path="res://.godot/imported/lever-right-up.png-bbd08dc4f0d9f6c821f2d9b6da8bf57a.ctex"
+uid="uid://dwvexiec0x8s"
+path="res://.godot/imported/keyblocks-off.png-904d7681175cebf401997335946cd6a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/objects/lever/lever-right-up.png"
-dest_files=["res://.godot/imported/lever-right-up.png-bbd08dc4f0d9f6c821f2d9b6da8bf57a.ctex"]
+source_file="res://sprites/tilesets/keyblocks-off.png"
+dest_files=["res://.godot/imported/keyblocks-off.png-904d7681175cebf401997335946cd6a6.ctex"]
 
 [params]
 

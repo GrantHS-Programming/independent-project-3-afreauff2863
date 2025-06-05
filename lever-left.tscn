@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dcporq5tjs1b1" path="res://sprites/objects/lever/lever-left-up.png" id="3_hxors"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6thpa"]
-size = Vector2(9, 14)
+size = Vector2(6, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44nso"]
 atlas = ExtResource("3_hxors")
@@ -15,18 +15,18 @@ region = Rect2(0, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vxkbr")
+"texture": SubResource("AtlasTexture_44nso")
 }],
 "loop": true,
-"name": &"down",
+"name": &"off",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_44nso")
+"texture": ExtResource("2_vxkbr")
 }],
 "loop": true,
-"name": &"up",
+"name": &"on",
 "speed": 5.0
 }]
 
@@ -36,12 +36,12 @@ collision_mask = 2
 script = ExtResource("1_mvfdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, 0)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_6thpa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2cfhx")
-animation = &"up"
-autoplay = "up"
+animation = &"off"
+autoplay = "off"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

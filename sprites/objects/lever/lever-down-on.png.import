@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnhnshe3h2wnu"
-path="res://.godot/imported/lever-right-down.png-7e32c9c990c78851d09e7a5a78f44edf.ctex"
+uid="uid://bawomsflokh2n"
+path="res://.godot/imported/lever-down-on.png-1ba05f1627a7dade44189e8b2324bf70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/objects/lever/lever-right-down.png"
-dest_files=["res://.godot/imported/lever-right-down.png-7e32c9c990c78851d09e7a5a78f44edf.ctex"]
+source_file="res://sprites/objects/lever/lever-down-on.png"
+dest_files=["res://.godot/imported/lever-down-on.png-1ba05f1627a7dade44189e8b2324bf70.ctex"]
 
 [params]
 

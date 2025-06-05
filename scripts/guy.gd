@@ -27,11 +27,22 @@ var canWallJump = 2
 var canControl:bool = true
 var deathPos = Vector2(248, 153)
 
+
 func _ready() -> void:
-	#global_position = deathPos
-	global_position = get_parent().get_node("checkpoints").get_node("checkpoint4").position
+	global_position = deathPos
+	# global_position = get_parent().get_node("checkpoints").get_node("checkpoint4").position
+
+
+func resetLevers():
+	get_parent().get_node("keyblocksInitialOn").enabled = true
+	get_parent().get_node("keyblocksInitialOff").enabled = false
+	if get_parent().get_node("levers").get_node("leverLeft1").down == true:
+		for child in get_parent().get_node("levers").get_children():
+			child.leverUp()
+
 
 func resetPlayer() -> void:
+	
 	$AnimatedSprite2D.play("death")
 	canControl = false
 	applyGravity = false
@@ -40,6 +51,11 @@ func resetPlayer() -> void:
 	applyGravity = true
 	canControl = true
 	global_position = deathPos
+	
+	resetLevers()
+	
+	print("respawned")
+
 
 
 func cameraOffsetControl():
@@ -47,9 +63,9 @@ func cameraOffsetControl():
 	# figure out way to make it so the camera moves to have more visibility in the direction the player is moving
 
 
+
 func _process(delta: float) -> void:
 
-	
 	if Input.is_action_just_pressed("respawn"):
 		resetPlayer()
 	
@@ -60,8 +76,6 @@ func _process(delta: float) -> void:
 	if obstacleColl:
 		resetPlayer()
 		print("died to obstacle tilemap")
-	
-	
 	
 	
 	# stops entire physics process when canControl is false

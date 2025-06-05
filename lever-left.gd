@@ -2,16 +2,26 @@ extends Area2D
 
 var down = false
 
+func leverDown():
+	$AnimatedSprite2D.play("on")
+	get_parent().get_parent().get_node("keyblocksInitialOn").enabled = false
+	get_parent().get_parent().get_node("keyblocksInitialOff").enabled = true
+	down = true
+
+func leverUp():
+	$AnimatedSprite2D.play("off")
+	get_parent().get_parent().get_node("keyblocksInitialOn").enabled = true
+	get_parent().get_parent().get_node("keyblocksInitialOff").enabled = false
+	down = false
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("guy"):
 		if !down:
-			$AnimatedSprite2D.play("down")
-			down = true
-			# make the lever switch tiles on and off (idk how)
-			get_parent().get_parent().get_node("keydoors").set_physics_layer_collision_mask(0,2)
+			for child in get_parent().get_children():
+				child.leverDown()
 		elif down:
-			$AnimatedSprite2D.play("up")
-			down = false
+			for child in get_parent().get_children():
+				child.leverUp()
 			
 		
 		# make it do something
