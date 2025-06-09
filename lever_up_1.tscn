@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://1c2mv0oev3jp"]
+
+[ext_resource type="Script" path="res://lever-left.gd" id="1_835tv"]
+[ext_resource type="Texture2D" uid="uid://rydcqv5okh1i" path="res://sprites/objects/lever/lever-up-off.png" id="2_u1t4w"]
+[ext_resource type="Texture2D" uid="uid://b4kd3lfxi126x" path="res://sprites/objects/lever/lever-up-on.png" id="3_wifby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7k1x"]
+size = Vector2(10, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxbti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u1t4w")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wifby")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="leverUp1" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_835tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_r7k1x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fxbti")
+animation = &"on"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

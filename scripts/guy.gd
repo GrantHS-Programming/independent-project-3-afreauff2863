@@ -21,7 +21,7 @@ const friction: float = 20
 @export var wallSlide = 30.0
 @export var wallXForce = 200.0
 @export var wallYForce = -320.0
-var canWallJump = 2
+var canWallJump = 3
 
 
 var canControl:bool = true
@@ -29,8 +29,8 @@ var deathPos = Vector2(248, 153)
 
 
 func _ready() -> void:
-	global_position = deathPos
-	# global_position = get_parent().get_node("checkpoints").get_node("checkpoint4").position
+	#global_position = deathPos
+	global_position = get_parent().get_node("checkpoints").get_node("checkpoint4").position
 
 
 func resetLevers():
@@ -103,7 +103,7 @@ func _process(delta: float) -> void:
 	if is_on_floor():
 		coyoteTimeActivated = false
 		gravity = lerp(gravity, 12.0, 12.0 * delta)
-		canWallJump = 2
+		canWallJump = 3
 	else:
 		# checks if coyote timer is activated already; if not, starts
 		if coyoteTimer.is_stopped() and !coyoteTimeActivated:

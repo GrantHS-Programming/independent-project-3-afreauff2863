@@ -4,9 +4,9 @@ res://checkpoint.tscn
 res://starman.tscn
 res://key1.tscn
 res://lever-left.tscn
-res://lever-left.gd
-res://scripts/guy.gd
-res://map.gd
 res://lever_down_1.tscn
-res://key1.gd
 res://lever_right_1.tscn
+res://scripts/guy.gd
+res://lever_up_1.tscn
+res://lever-left.gd
+res://map.gd
