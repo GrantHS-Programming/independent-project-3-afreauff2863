@@ -22,6 +22,7 @@ const friction: float = 20
 @export var wallXForce = 200.0
 @export var wallYForce = -320.0
 var canWallJump = 3
+var wallLeniency = true
 
 
 var canControl:bool = true
@@ -29,8 +30,10 @@ var deathPos = Vector2(248, 153)
 
 
 func _ready() -> void:
+	# sets player initial location
+	
 	#global_position = deathPos
-	global_position = get_parent().get_node("checkpoints").get_node("checkpoint4").position
+	global_position = get_parent().get_node("checkpoints/checkpoint8").position
 
 
 func resetLevers():
@@ -121,23 +124,29 @@ func _process(delta: float) -> void:
 			jumpBufferTimer.start()
 	
 	# WALL JUMP
-	if is_on_wall_only() && velocity.y > -10 && (Input.is_action_pressed("move-left") || Input.is_action_pressed("move-right")):
-			
-		velocity.y /= 1.5
+	
+	# use Global.wallLeniencyColl instead of is_on_wall_only, but breaks, only giving you one wall jump?? try to fix
+	if is_on_wall_only() && Global.wallLeniencyColl && velocity.y > -10 && (Input.is_action_pressed("move-left") || Input.is_action_pressed("move-right")):
+
 		# fix wall-sliding in a one-tile wide gap
-		if leftRay.is_colliding():
+		if !is_on_wall():
+			$AnimatedSprite2D.play("jump")
+		elif leftRay.is_colliding():
+			velocity.y /= 1.5
 			$AnimatedSprite2D.play("wall-slide-left")
 		elif rightRay.is_colliding():
+			velocity.y /= 1.5
 			$AnimatedSprite2D.play("wall-slide-right")
-		if !is_on_wall():
-			$AnimatedSprite2D.play("fall")
 		if Input.is_action_just_pressed("jump") && canWallJump > 0:
+			velocity.x = 0
 			canWallJump -= 1
 			$AnimatedSprite2D.play("jump")
 			if leftRay.is_colliding():
-				velocity = Vector2(wallXForce, wallYForce)
+				velocity.x = lerp(velocity.x, 400.0, 0.7)
+				velocity.y = lerp(velocity.y, -700.0, 0.5)
 			elif rightRay.is_colliding():
-				velocity = Vector2(-wallXForce, wallYForce)
+				velocity.x = lerp(velocity.x, -400.0, 0.7)
+				velocity.y = lerp(velocity.y, -700.0, 0.5)
 			
 	
 	

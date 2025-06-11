@@ -63,6 +63,11 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_atdst"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"congrats",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_70a87")
@@ -74,7 +79,7 @@ animations = [{
 "texture": ExtResource("5_kwewr")
 }],
 "loop": true,
-"name": &"default",
+"name": &"query",
 "speed": 10.0
 }]
 
@@ -109,6 +114,7 @@ frame_progress = 0.525338
 visible = false
 position = Vector2(-38, -36)
 sprite_frames = SubResource("SpriteFrames_atdst")
+animation = &"congrats"
 
 [node name="talkPrompt" type="AnimatedSprite2D" parent="."]
 visible = false

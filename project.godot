@@ -15,6 +15,10 @@ run/main_scene="res://map.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://sprites/icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 window/size/viewport_width=720
@@ -25,6 +29,7 @@ window/stretch/mode="viewport"
 
 guy="player character"
 obstacles="spikes tileset"
+object=""
 
 [input]
 

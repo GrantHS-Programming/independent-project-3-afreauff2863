@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bawrajpr1aprl"]
+[gd_scene load_steps=21 format=3 uid="uid://bawrajpr1aprl"]
 
 [ext_resource type="Script" path="res://scripts/guy.gd" id="1_4ctn2"]
 [ext_resource type="Script" path="res://area_2d.gd" id="2_4bgsy"]
 [ext_resource type="Texture2D" uid="uid://cxj1q3jt10wb0" path="res://sprites/tilesets/kiloslime-sprites-png.png" id="2_p8gfx"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="4_8eivw"]
+[ext_resource type="Script" path="res://wall_leniency_area_2d.gd" id="5_hpm4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvrpq"]
 size = Vector2(12, 8)
@@ -132,6 +133,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gim4i"]
+size = Vector2(22, 8)
+
 [node name="guy" type="CharacterBody2D" groups=["guy"]]
 position = Vector2(248, 153)
 collision_layer = 2
@@ -221,10 +225,19 @@ hit_from_inside = true
 
 [node name="rightray" type="RayCast2D" parent="wallRays"]
 position = Vector2(0, 1)
-target_position = Vector2(12, 0)
+target_position = Vector2(17, 0)
 
 [node name="leftRay" type="RayCast2D" parent="wallRays"]
 position = Vector2(0, 1)
-target_position = Vector2(-12, 0)
+target_position = Vector2(-17, 0)
+
+[node name="wallLeniencyArea2D" type="Area2D" parent="."]
+script = ExtResource("5_hpm4l")
+
+[node name="wallLeniencyBox" type="CollisionShape2D" parent="wallLeniencyArea2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_gim4i")
 
 [connection signal="body_entered" from="obstacleDetecter" to="obstacleDetecter" method="_on_body_entered"]
+[connection signal="body_entered" from="wallLeniencyArea2D" to="wallLeniencyArea2D" method="_on_body_entered"]
+[connection signal="body_exited" from="wallLeniencyArea2D" to="wallLeniencyArea2D" method="_on_body_exited"]

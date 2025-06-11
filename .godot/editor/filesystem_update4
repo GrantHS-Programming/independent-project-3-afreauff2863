@@ -6,7 +6,11 @@ res://key1.tscn
 res://lever-left.tscn
 res://lever_down_1.tscn
 res://lever_right_1.tscn
-res://scripts/guy.gd
 res://lever_up_1.tscn
-res://lever-left.gd
-res://map.gd
+res://scripts/guy.gd
+res://title_trigger.gd
+res://title_trigger.tscn
+res://global.gd
+res://starman.gd
+res://key1.gd
+res://wall_leniency_area_2d.gd
